@@ -1,0 +1,7 @@
+C:\Learn\idea_proj\bookmark-api>docker ps
+CONTAINER ID   IMAGE                                 COMMAND              CREATED       STATUS       PORTS     NAMES
+bc68bc4fae31   rajeevdocker01/bookmarks-api:latest   "/cnb/process/web"   6 hours ago   Up 6 hours             beautiful_montalcini
+
+C:\Learn\idea_proj\bookmark-api>docker run  -p 8090:8080 rajeevdocker01/bookmarks-api
+
+http://localhost:8090/api/bookmarks?page=2
