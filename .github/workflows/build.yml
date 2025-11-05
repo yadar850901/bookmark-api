@@ -24,7 +24,7 @@ jobs:
 
       - if: ${{github.ref == 'ref/heads/main'}}
         name: Build and publish docker image
-        run:
+        run: |
           mvn spring-boot:build-image
           docker login -u ${{secrets.DOCKER_USERNAME}} -P ${{secrets.DOCKER_NICKNAME}}
           docker push ${{secrets.DOCKER_USERNAME}}/bookmarker-api
