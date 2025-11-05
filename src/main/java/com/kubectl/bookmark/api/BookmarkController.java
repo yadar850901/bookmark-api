@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/bookmarks")
-
 public class BookmarkController {
     @Autowired
     private BookmarkService bookmarkService;
