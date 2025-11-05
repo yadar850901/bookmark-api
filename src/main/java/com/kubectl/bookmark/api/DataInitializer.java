@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 public class DataInitializer  implements CommandLineRunner {
     @Autowired
     private BookmarkRepository bookmarkRepo;
-
     @Override
     public void run(String... args) throws Exception {
         bookmarkRepo.save(new Bookmark(null, "https://example.com", "Example", java.time.Instant.now()));
