@@ -22,7 +22,7 @@ jobs:
       - name: Build with Maven
         run: mvn verify
 
-      - if: ${{github.ref == 'ref/heads/main'}}
+      - if: ${{ github.ref == 'refs/heads/main' }}
         name: Build and publish docker image
         run: |
           mvn spring-boot:build-image
