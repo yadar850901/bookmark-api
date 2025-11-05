@@ -105,7 +105,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>rajeevdocker01/${project.artifactId}:${project.version}</name>
+<!--						<name>rajeevdocker01/${project.artifactId}:${project.version}</name>-->
+						<name>rajeevdocker01/bookmarker-api</name>
 					</image>
 					<excludes>
 						<exclude>
