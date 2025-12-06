@@ -16,11 +16,10 @@ import java.util.List;
 public class BookmarkService {
     @Autowired
     private BookmarkRepository bookmarkRepository;
-
-    public Bookmark createBookmark(String url, String title) {
+    public Bookmark createBookmark(BookmarkReq bookmarkReq) {
         Bookmark bookmark = new Bookmark();
-        bookmark.setUrl(url);
-        bookmark.setTitle(title);
+        bookmark.setUrl(bookmarkReq.getUrl());
+        bookmark.setTitle(bookmarkReq.getTitle());
         bookmark.setCreatedAt(java.time.Instant.now());
         return bookmarkRepository.save(bookmark);
     }
@@ -30,6 +29,13 @@ public class BookmarkService {
         int pageNo = page < 1 ? 0 : page - 1;
         PageRequest pageRequest = PageRequest.of(pageNo, 2, Sort.Direction.DESC, "createdAt");
         return new BookmarksDto(bookmarkRepository.findAll(pageRequest));
+    }
+
+    @Transactional(readOnly = true)
+    public BookmarksDto searchBookmarks(Integer page,String query) {
+        int pageNo = page < 1 ? 0 : page - 1;
+        PageRequest pageRequest = PageRequest.of(pageNo, 2, Sort.Direction.DESC, "createdAt");
+        return new BookmarksDto(bookmarkRepository.findByTitleContainingIgnoreCase(query,pageRequest));
     }
 
 }

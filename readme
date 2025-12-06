@@ -5,3 +5,8 @@ bc68bc4fae31   rajeevdocker01/bookmarks-api:latest   "/cnb/process/web"   6 hour
 C:\Learn\idea_proj\bookmark-api>docker run  -p 8090:8080 rajeevdocker01/bookmarks-api
 
 http://localhost:8090/api/bookmarks?page=2
+
+===========
+
+docker-compose -f docker-compose.yml -f docker-compose-app.yml up -d => up the multiple containers
+docker-compose -f docker-compose.yml -f docker-compose-app.yml logs -f  =>  logs
